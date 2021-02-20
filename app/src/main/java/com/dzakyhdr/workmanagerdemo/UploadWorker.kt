@@ -7,13 +7,13 @@ import androidx.work.WorkerParameters
 
 class UploadWorker(context: Context, params:WorkerParameters): Worker(context, params) {
     override fun doWork(): Result {
-        try {
+        return try {
             for (i in 0..60000){
                 Log.i("MyTag", "Uploading $i")
             }
-            return Result.success()
+            Result.success()
         } catch (e: Exception){
-            return Result.failure()
+            Result.failure()
         }
     }
 }
